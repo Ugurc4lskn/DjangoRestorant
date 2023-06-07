@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="">
+           
+        </div>
+        <div class=" bg-dark d-flex align-items-center">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Rezervasyon</h5>
+                <h1 class="text-white mb-4">Rezervasyon Sorgulama</h1>
+                
+                <p class="text-white mb-4">
+                    {% if query %}
+                        Reservasyon Kaydı Bulundu
+                    {% endif %}
+                </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">                    
+                        <div class="col-md-6">
+                            {{form.name}}
+                        </div>
+                        <div class="col-md-6">
+                            {{form.last_name}}
+                        </div>
+                        <div class="col-md-6">
+                            {{form.captcha}}
+                        </div>
+                       
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Sorgula</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

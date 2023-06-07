@@ -1,0 +1,81 @@
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Contact Us</h5>
+            <h1 class="mb-5">Contact For Any Query</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-4">
+                    {% if siteContact.eposta1Title %}
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">{{siteContact.eposta1Title}}</h5>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>{{siteContact.eposta1Mail}}</p>
+                    </div>
+                    {% endif %}
+                    {% if siteContact.eposta2Title %}
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">{{siteContact.eposta2Title}}</h5>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>{{siteContact.eposta2Mail}}</p>
+                    </div>
+                    {% endif %}
+                    {% if siteContact.eposta3Title %}
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">{{siteContact.eposta3Title}}</h5>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>{{siteContact.eposta3Mail}}</p>
+                    </div>
+                    {% endif %}
+            
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                <iframe class="position-relative rounded w-100 h-100"
+                    src="{{siteContact.location|safe}}"
+                    frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                    tabindex="0"></iframe>
+            </div>
+            <div class="col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <p class="text-white mb-4">
+                            {% for message in messages %}
+                                {% if message %}
+                                    {{ message }}
+                                
+                                {% endif %}
+                                    
+                            {% endfor %}
+                        </p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{form.name}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.lastname}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.content}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.title}}
+                            </div>
+                            
+                            <div class="col-md-6">
+                                {{form.captcha}}
+                            </div>
+                                
+                                    
+                             
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
